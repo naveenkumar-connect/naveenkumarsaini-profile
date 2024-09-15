@@ -1,7 +1,7 @@
 {
   "name": "nks-profile",
   "version": "0.1.0",
-  "homepage": "http://naveenkumarsaini.com/",
+  "homepage": "https://naveenkumarsaini.com/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

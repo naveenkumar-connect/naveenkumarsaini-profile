@@ -12,8 +12,13 @@ function App() {
                 borderRadius: 2,
         
                 // Alias Token
-                colorBgContainer: '#F5F5F5FF',
+                colorBgContainer: '#F5F5F5FF'
             },
+            components:{
+                Menu: {
+                  itemColor: '#FFFFFFD9'
+                }
+            }
         }}
     >
       <Profile />

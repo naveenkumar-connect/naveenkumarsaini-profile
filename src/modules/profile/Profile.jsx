@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Layout, Menu, theme } from 'antd';
+import { Layout, Menu, theme, Image } from 'antd';
 import "./Profile.less";
+import bg1 from '../../assets/images/bg1.jpg';
 
 const { Header, Content, Footer } = Layout;
 
@@ -29,16 +30,17 @@ const headerStyle = {
     justifyContent: 'space-between',
     alignItems: 'center',
     height: '64px',
-    border: '1px solid red'
+    background: 'none'
 };
 
 const headerMenuStyle = {
-    minWidth: 0
+    minWidth: 0,
+    width: '256px',
+    background: 'none'
 };
 
 const contentStyle = {
-    padding: '0 48px',
-    height: 'calc( 100vh - 128px )'
+    padding: '0 0'
 };
 
 const footerStyle = {
@@ -64,25 +66,53 @@ const Profile = () => {
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
     const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [headerColorRequired, setHeaderColorRequired] = useState(false);
+
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    useEffect(()=>{
+        const viewportHeight = window.innerHeight;
+        setHeaderColorRequired(scrollPosition>viewportHeight/2);
+    }, [scrollPosition]);
+
     return(
         <Layout>
             <Header
-                style={headerStyle}
+                style={{
+                    ...headerStyle,
+                    background: headerColorRequired?'black':'none'
+                }}
             >
                 <span className='header-profile-name'>Naveen Kumar Saini</span>
                 <Menu
-                    theme="dark"
                     mode="horizontal"
                     defaultSelectedKeys={['home']}
                     items={items}
                     style={headerMenuStyle}
+                    className='header-menu'
                 />
             </Header>
             <Content
                 style={contentStyle}
             >
                 <div className='profile-content-container'>
-
+                <Image
+                    src={bg1}
+                    preview={false}
+                    className='content-image'
+                />
                 </div>
             </Content>
             <Footer

@@ -1,14 +1,23 @@
-import logo from './logo.svg';
+import Profile from './modules/profile/Profile';
 import './App.css';
+import { ConfigProvider } from 'antd';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div>My Profile: Naveen Kumar Saini</div>
-        <div>Coming Soon</div>
-      </header>
-    </div>
+    <ConfigProvider
+        theme={{
+            token: {
+                // Seed Token
+                colorPrimary: '#c7aa36',
+                borderRadius: 2,
+        
+                // Alias Token
+                colorBgContainer: '#F5F5F5FF',
+            },
+        }}
+    >
+      <Profile />
+    </ConfigProvider>
   );
 }
 

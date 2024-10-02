@@ -1,62 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Layout, Menu, theme, Image } from 'antd';
+import { Layout, Anchor, theme, Row, Col, Space, Image } from 'antd';
+import { XOutlined, InstagramOutlined, LinkedinOutlined } from '@ant-design/icons';
+import ProfileIntro from './ProfileIntro';
+import ProfileAbout from './ProfileAbout';
 import "./Profile.less";
-import bg1 from '../../assets/images/bg1.jpg';
+import musicalNote from '../../assets/images/musical-note.png';
+import travelLuggage from '../../assets/images/travel-luggage.png';
+import drive from '../../assets/images/drive.png';
+import movie from '../../assets/images/movie.png';
 
 const { Header, Content, Footer } = Layout;
 
 const items = [
     {
         key: 'home',
-        label: 'Home',
+        href: '#home',
+        title: 'Home',
     },
     {
         key: 'about',
-        label: 'About',
+        href: '#about',
+        title: 'About',
     },
     {
         key: 'contact',
-        label: 'Contact',
+        href: '#contact',
+        title: 'Contact',
     }
 ];
-
-const headerStyle = {
-    position: 'sticky',
-    top: 0,
-    zIndex: 1,
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '64px',
-    background: 'none'
-};
-
-const headerMenuStyle = {
-    minWidth: 0,
-    width: '256px',
-    background: 'none'
-};
 
 const contentStyle = {
     padding: '0 0'
 };
 
-const footerStyle = {
-    border: '1px solid black',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    padding: '0 48px',
-    height: '64px'
-}
-
 const Profile = () => {
 
-    const {
-        token: { colorBgContainer },
-      } = theme.useToken();
+    // const {
+    //     token: { colorBgContainer },
+    // } = theme.useToken();
 
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1224px)'
@@ -90,39 +72,105 @@ const Profile = () => {
     return(
         <Layout>
             <Header
+                className='profile-header'
                 style={{
-                    ...headerStyle,
-                    background: headerColorRequired?'black':'none'
+                    background: headerColorRequired?'rgba(255, 255, 255, 0.9)':'rgba(255, 255, 255, 0.3)'
                 }}
             >
-                <span className='header-profile-name'>Naveen Kumar Saini</span>
-                <Menu
-                    mode="horizontal"
-                    defaultSelectedKeys={['home']}
-                    items={items}
-                    style={headerMenuStyle}
-                    className='header-menu'
-                />
+                <Row>
+                    <Col span={8} offset={3} className='header-col1'>
+                        <span 
+                            className={isTabletOrMobile?'header-profile-name-mobile':'header-profile-name-computer'}
+                        >
+                            Naveen Kumar Saini.
+                        </span>
+                    </Col>
+                    <Col span={8} offset={2} className='header-col2'>
+                        <Anchor
+                            direction="horizontal"
+                            defaultSelectedKeys={['home']}
+                            items={items}
+                            className='header-anchor'
+                        />
+                    </Col>
+                </Row>
             </Header>
             <Content
                 style={contentStyle}
             >
-                <div className='profile-content-container'>
-                <Image
-                    src={bg1}
-                    preview={false}
-                    className='content-image'
-                />
-                </div>
+                <ProfileIntro />
+                <ProfileAbout />
             </Content>
             <Footer
-                style={footerStyle}
+                className='profile-footer'
+                id='contact'
             >
-                {isDesktopOrLaptop && <p>You are a desktop or laptop</p>}
-                {isBigScreen && <p>You have a huge screen</p>}
-                {isTabletOrMobile && <p>You are a tablet or mobile phone</p>}
-                <p>Your are in {isPortrait ? 'portrait' : 'landscape'} orientation</p>
-                {isRetina && <p>You are retina</p>}
+                {"2024 Naveen Kumar Saini"}
+                <Space>
+                    <XOutlined className='social-icons'/>
+                    <InstagramOutlined className='social-icons'/>
+                    <LinkedinOutlined className='social-icons'/>
+                </Space>
+                <Space direction='vertical' className='footer-external-resources'>
+                    External Resources Used
+                    <Space>
+                        <div className='footer-image-shell'>
+                            <Image
+                                src={musicalNote}
+                                preview={false}
+                                width='16px'
+                                height='16px'
+                                className='footer-image'
+                            />
+                        </div>
+                        <a href="https://www.flaticon.com/free-icons/musical-note" title="musical note icons">Musical note icons created by Freepik - Flaticon</a>
+                    </Space>
+                    <Space>
+                        <div className='footer-image-shell'>
+                            <Image
+                                src={travelLuggage}
+                                preview={false}
+                                width='16px'
+                                height='16px'
+                                className='footer-image'
+                            />
+                        </div>
+                        <a href="https://www.flaticon.com/free-icons/travel" title="travel icons">Travel icons created by Freepik - Flaticon</a>
+                    </Space>
+                    <Space>
+                        <div className='footer-image-shell'>
+                            <Image
+                                src={drive}
+                                preview={false}
+                                width='16px'
+                                height='16px'
+                                className='footer-image'
+                            />
+                        </div>
+                        <a href="https://www.flaticon.com/free-icons/test-drive" title="test drive icons">Test drive icons created by Mayor Icons - Flaticon</a>
+                    </Space>
+                    <Space>
+                        <div className='footer-image-shell'>
+                            <Image
+                                src={movie}
+                                preview={false}
+                                width='16px'
+                                height='16px'
+                                className='footer-image'
+                            />
+                        </div>
+                        <a href="https://www.flaticon.com/free-icons/video" title="video icons">Video icons created by Freepik - Flaticon</a>
+                    </Space>
+                </Space>
+                
+                <Space direction='vertical' className='device-details' size={0}>
+                    {isDesktopOrLaptop && <p>Device Type: desktop or laptop</p>}
+                    {isBigScreen && <p>Device Size: Large</p>}
+                    {isTabletOrMobile && <p>Device Type: tablet or mobile phone</p>}
+                    <p>Orientation: {isPortrait ? 'portrait' : 'landscape'}</p>
+                    {isRetina && <p>Retina</p>}
+                </Space>
+                
             </Footer>
         </Layout>
 

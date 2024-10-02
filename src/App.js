@@ -16,7 +16,7 @@ function App() {
             },
             components:{
                 Menu: {
-                  itemColor: '#FFFFFFD9'
+                  itemColor: '#000000E0'
                 }
             }
         }}

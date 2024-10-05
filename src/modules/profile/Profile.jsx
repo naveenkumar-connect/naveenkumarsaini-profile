@@ -126,7 +126,10 @@ const Profile = () => {
             <Content
                 style={contentStyle}
             >
-                <ProfileIntro isTabletOrMobile={isTabletOrMobile} />
+                <ProfileIntro 
+                    isTabletOrMobile={isTabletOrMobile} 
+                    isPortrait={isPortrait}
+                />
                 <ProfileAbout isTabletOrMobile={isTabletOrMobile} />
             </Content>
             <Footer

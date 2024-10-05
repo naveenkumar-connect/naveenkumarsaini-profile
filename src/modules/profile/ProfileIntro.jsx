@@ -5,7 +5,7 @@ import bg3 from '../../assets/images/bg3.jpg';
 
 const { Title } = Typography;
 
-const ProfileIntro = ({isTabletOrMobile}) => {
+const ProfileIntro = ({isTabletOrMobile, isPortrait}) => {
 
     return(
         <div 
@@ -16,7 +16,7 @@ const ProfileIntro = ({isTabletOrMobile}) => {
                 backgroundSize: 'cover',  // Set background image width and height
                 backgroundPosition: 'center',  // Center the image within the container
                 backgroundRepeat: 'no-repeat',  // Prevent image repetition
-                height: isTabletOrMobile?'60vh':'140vh',  // Container height
+                height: isTabletOrMobile&&isPortrait?'60vh':'140vh',  // Container height
             }}
         >
             <div className='descriptions'>

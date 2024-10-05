@@ -9,22 +9,27 @@ import movie from '../../assets/images/movie.png';
 
 const { Title, Text } = Typography;
 
-const ProfileAbout = () => {
+const ProfileAbout = ({isTabletOrMobile}) => {
 
     return(
         <div 
-            className='profile-about-container'
+            className={isTabletOrMobile?'profile-about-container-mobile':'profile-about-container-computer'}
             id='about'
         >
             <Row>
-                <Col span={8} offset={3} className='about-image'>
-                    <Image
-                        src={bg5}
-                        preview={false}
-                        className='content-image'
-                    />
-                </Col>
-                <Col span={10} className='about-description'>
+                {
+                    !isTabletOrMobile &&
+                    <Col span={8} offset={3}>
+                        <Image
+                            src={bg5}
+                            preview={false}
+                        />
+                    </Col>
+                }
+                <Col 
+                    span={isTabletOrMobile?24:10} 
+                    className={isTabletOrMobile?'about-description-mobile':'about-description-computer'}
+                >
                     <Title level={2} className="about-me">About Me</Title>
                     <Text type="secondary" className="about-text">I am a Full Stack Developer with expertise in React, Django, SQL Server, and Azure. With a strong background in both front-end and back-end development, I enjoy building scalable web applications and solving complex technical challenges. As a Tech Team Lead, I thrive in mentoring teams and driving projects from concept to completion with a focus on clean architecture and innovative solutions.</Text>
 
@@ -69,13 +74,13 @@ const ProfileAbout = () => {
                         </Col>
                     </Row>
 
-                    <Space className='hobbies' direction='vertical'>
+                    <Space className='hobbies' direction={isTabletOrMobile?'horizontal':'vertical'}>
                         <Space>
                             <Image
                                 src={musicalNote}
                                 preview={false}
-                                width='32px'
-                                height='32px'
+                                width={isTabletOrMobile?'20px':'32px'}
+                                height={isTabletOrMobile?'20px':'32px'}
                                 className='footer-image'
                             /> Music
                         </Space>
@@ -84,8 +89,8 @@ const ProfileAbout = () => {
                             <Image
                                 src={travelLuggage}
                                 preview={false}
-                                width='32px'
-                                height='32px'
+                                width={isTabletOrMobile?'20px':'32px'}
+                                height={isTabletOrMobile?'20px':'32px'}
                                 className='footer-image'
                             /> Travelling
                         </Space>
@@ -94,8 +99,8 @@ const ProfileAbout = () => {
                             <Image
                                 src={drive}
                                 preview={false}
-                                width='32px'
-                                height='32px'
+                                width={isTabletOrMobile?'20px':'32px'}
+                                height={isTabletOrMobile?'20px':'32px'}
                                 className='footer-image'
                             /> Driving
                         </Space>
@@ -104,8 +109,8 @@ const ProfileAbout = () => {
                             <Image
                                 src={movie}
                                 preview={false}
-                                width='32px'
-                                height='32px'
+                                width={isTabletOrMobile?'20px':'32px'}
+                                height={isTabletOrMobile?'20px':'32px'}
                                 className='footer-image'
                             /> Movies
                         </Space>

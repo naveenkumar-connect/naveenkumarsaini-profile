@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Layout, Anchor, theme, Row, Col, Space, Image } from 'antd';
-import { XOutlined, InstagramOutlined, LinkedinOutlined } from '@ant-design/icons';
+import { Layout, Anchor, theme, Row, Col, Space, Image, Drawer } from 'antd';
+import { XOutlined, InstagramOutlined, LinkedinOutlined, MenuOutlined } from '@ant-design/icons';
 import ProfileIntro from './ProfileIntro';
 import ProfileAbout from './ProfileAbout';
 import "./Profile.less";
@@ -50,6 +50,7 @@ const Profile = () => {
 
     const [scrollPosition, setScrollPosition] = useState(0);
     const [headerColorRequired, setHeaderColorRequired] = useState(false);
+    const [openDrawer, setOpenDrawer] = useState(false);
 
     const handleScroll = () => {
         const position = window.pageYOffset;
@@ -69,8 +70,28 @@ const Profile = () => {
         setHeaderColorRequired(scrollPosition>viewportHeight/2);
     }, [scrollPosition]);
 
+    const showDrawer = () => {
+        setOpenDrawer(true);
+    };
+    const onDrawerClose = () => {
+        setOpenDrawer(false);
+    };
+
     return(
         <Layout>
+            <Drawer 
+                onClose={onDrawerClose} 
+                open={openDrawer}
+                width={'150px'}
+                className='custom-drawer'
+            >
+                <Anchor
+                    defaultSelectedKeys={['home']}
+                    items={items}
+                    className='header-anchor'
+                    onClick={onDrawerClose}
+                />
+            </Drawer>
             <Header
                 className='profile-header'
                 style={{
@@ -86,20 +107,27 @@ const Profile = () => {
                         </span>
                     </Col>
                     <Col span={8} offset={2} className='header-col2'>
-                        <Anchor
-                            direction="horizontal"
-                            defaultSelectedKeys={['home']}
-                            items={items}
-                            className='header-anchor'
-                        />
+                        {
+                            isTabletOrMobile && !openDrawer &&
+                                <MenuOutlined onClick={showDrawer}/>
+                        }
+                        {
+                            !isTabletOrMobile &&
+                            <Anchor
+                                direction="horizontal"
+                                defaultSelectedKeys={['home']}
+                                items={items}
+                                className='header-anchor'
+                            />
+                        }  
                     </Col>
                 </Row>
             </Header>
             <Content
                 style={contentStyle}
             >
-                <ProfileIntro />
-                <ProfileAbout />
+                <ProfileIntro isTabletOrMobile={isTabletOrMobile} />
+                <ProfileAbout isTabletOrMobile={isTabletOrMobile} />
             </Content>
             <Footer
                 className='profile-footer'

@@ -11,8 +11,8 @@
 .header-profile-name{
     color: #000000E0;
     font-family: Roboto, sans-serif;
-    font-weight: 900;
     text-transform: uppercase;
+    font-weight: 900;
 }
 
 .header-profile-name-computer{
@@ -21,8 +21,12 @@
 }
 
 .header-profile-name-mobile{
-    font-size: 16px;
+    font-size: 10px;
     .header-profile-name()
+}
+
+.custom-drawer{
+    background: rgba(255, 255, 255, 0.8) !important;
 }
 
 .header-anchor{
@@ -52,12 +56,22 @@
         .description-text-salutation{
             color: #c7aa36;
         }
+
+        .description-text-salutation-mobile{
+            background:rgba(255, 255, 255, 0.4);
+            .description-text-salutation();
+        }
     
         .description-text-description{
             font-weight: 800;
             margin: 0px;
         }
-    
+
+        .description-text-description-mobile{
+            background:rgba(255, 255, 255, 0.4);
+            .description-text-description();
+        }
+
         .descriptions-buttons{
             padding-top: 15px;
             .download-cv-button{
@@ -69,11 +83,9 @@
 
 .profile-about-container{
     height: fit-content;
-    padding: 30px 0;
-    background: #fffef0;
+    background: rgba(255, 254, 240, 0.8);
 
     .about-description{
-        padding: 30px;
 
         .about-me{
             color: #000000E0;
@@ -103,6 +115,32 @@
             font-weight: 600;
         }
     }
+
+    .about-description-computer{
+        padding: 30px;
+        .hobbies{
+            font-size: 16px;
+        }
+        .about-description();
+    }
+
+    .about-description-mobile{
+        padding: 5px 30px;
+        .hobbies{
+            font-size: 12px;
+        }
+        .about-description();
+    }
+}
+
+.profile-about-container-computer{
+    padding: 30px 0;
+    .profile-about-container();
+}
+
+.profile-about-container-mobile{
+    padding: 10px 0;
+    .profile-about-container();
 }
 
 .profile-footer{

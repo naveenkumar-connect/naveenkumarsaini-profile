@@ -5,7 +5,7 @@ import bg3 from '../../assets/images/bg3.jpg';
 
 const { Title } = Typography;
 
-const ProfileIntro = () => {
+const ProfileIntro = ({isTabletOrMobile}) => {
 
     return(
         <div 
@@ -16,22 +16,32 @@ const ProfileIntro = () => {
                 backgroundSize: 'cover',  // Set background image width and height
                 backgroundPosition: 'center',  // Center the image within the container
                 backgroundRepeat: 'no-repeat',  // Prevent image repetition
-                height: '140vh',  // Container height
+                height: isTabletOrMobile?'60vh':'140vh',  // Container height
             }}
         >
             <div className='descriptions'>
                 <Row>
-                    <Col span={8} offset={3}>
-                        <Title className='description-text-salutation' level={5}>Hello! This is Naveen</Title>
+                    <Col span={12} offset={3}>
+                        <Title 
+                            className={isTabletOrMobile?'description-text-salutation-mobile' : 'description-text-salutation'}
+                            level={5}
+                        >
+                            Hello! This is Naveen
+                        </Title>
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={8} offset={3}>
-                        <Title className='description-text-description' level={1}>Full Stack Developer</Title>
+                    <Col span={12} offset={3}>
+                        <Title 
+                            className={isTabletOrMobile?'description-text-description-mobile' : 'description-text-description'} 
+                            level={1}
+                        >
+                            Full Stack Developer
+                        </Title>
                     </Col>
                 </Row>
                 <Row className='descriptions-buttons'>
-                    <Col span={8} offset={3}>
+                    <Col span={12} offset={3}>
                         <Button type="primary" className='download-cv-button'>Downlaod CV</Button>
                     </Col>
                 </Row>

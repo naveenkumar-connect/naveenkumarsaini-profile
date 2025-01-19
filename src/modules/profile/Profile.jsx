@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Layout, Anchor, theme, Row, Col, Space, Image, Drawer } from 'antd';
-import { XOutlined, InstagramOutlined, LinkedinOutlined, MenuOutlined } from '@ant-design/icons';
+import { Layout, Anchor, theme, Row, Col, Space, Image, Drawer, Tooltip } from 'antd';
+import { 
+    XOutlined, 
+    InstagramOutlined, 
+    LinkedinOutlined, 
+    MenuOutlined, 
+    HomeOutlined,
+    UserOutlined,
+    MailOutlined,
+    BookOutlined
+} from '@ant-design/icons';
 import ProfileIntro from './ProfileIntro';
 import ProfileAbout from './ProfileAbout';
+import ProfilePortfolio from './ProfilePortfolio';
 import "./Profile.less";
 import musicalNote from '../../assets/images/musical-note.png';
 import travelLuggage from '../../assets/images/travel-luggage.png';
@@ -12,23 +22,48 @@ import movie from '../../assets/images/movie.png';
 
 const { Header, Content, Footer } = Layout;
 
-const items = [
-    {
-        key: 'home',
-        href: '#home',
-        title: 'Home',
-    },
-    {
-        key: 'about',
-        href: '#about',
-        title: 'About',
-    },
-    {
-        key: 'contact',
-        href: '#contact',
-        title: 'Contact',
-    }
-];
+export const prepareTitle = (icon, titleText) => {
+    return <Tooltip placement="bottom" title={titleText} color='#c7aa36'> {icon} </Tooltip>
+}
+
+export const getItems = () =>{
+    return(
+        [
+            {
+                key: 'home',
+                href: '#home',
+                title: prepareTitle(
+                    <HomeOutlined />,
+                    "Home"
+                )
+            },
+            {
+                key: 'about',
+                href: '#about',
+                title: prepareTitle(
+                    <UserOutlined />,
+                    "About"
+                )
+            },
+            // {
+            //     key: 'portfolio',
+            //     href: '#portfolio',
+            //     title: prepareTitle(
+            //         <BookOutlined />,
+            //         "Portfolio"
+            //     )
+            // },
+            // {
+            //     key: 'contact',
+            //     href: '#contact',
+            //     title: prepareTitle(
+            //         <MailOutlined />,
+            //         "Contact"
+            //     )
+            // }
+        ]
+    );
+};
 
 const contentStyle = {
     padding: '0 0'
@@ -87,7 +122,7 @@ const Profile = () => {
             >
                 <Anchor
                     defaultSelectedKeys={['home']}
-                    items={items}
+                    items={getItems()}
                     className='header-anchor'
                     onClick={onDrawerClose}
                 />
@@ -103,7 +138,7 @@ const Profile = () => {
                         <span 
                             className={isTabletOrMobile?'header-profile-name-mobile':'header-profile-name-computer'}
                         >
-                            Naveen Kumar Saini.
+                            Naveen Kumar Saini
                         </span>
                     </Col>
                     <Col span={8} offset={2} className='header-col2'>
@@ -116,7 +151,7 @@ const Profile = () => {
                             <Anchor
                                 direction="horizontal"
                                 defaultSelectedKeys={['home']}
-                                items={items}
+                                items={getItems()}
                                 className='header-anchor'
                             />
                         }  
@@ -131,75 +166,18 @@ const Profile = () => {
                     isPortrait={isPortrait}
                 />
                 <ProfileAbout isTabletOrMobile={isTabletOrMobile} />
+                {/* <ProfilePortfolio isTabletOrMobile={isTabletOrMobile} /> */}
             </Content>
             <Footer
                 className='profile-footer'
-                id='contact'
             >
-                {"2024 Naveen Kumar Saini"}
+                {"Designed and Developed by Naveen Kumar Saini"}
                 <Space>
-                    <XOutlined className='social-icons'/>
-                    <InstagramOutlined className='social-icons'/>
-                    <LinkedinOutlined className='social-icons'/>
-                </Space>
-                <Space direction='vertical' className='footer-external-resources'>
-                    External Resources Used
-                    <Space>
-                        <div className='footer-image-shell'>
-                            <Image
-                                src={musicalNote}
-                                preview={false}
-                                width='16px'
-                                height='16px'
-                                className='footer-image'
-                            />
-                        </div>
-                        <a href="https://www.flaticon.com/free-icons/musical-note" title="musical note icons">Musical note icons created by Freepik - Flaticon</a>
-                    </Space>
-                    <Space>
-                        <div className='footer-image-shell'>
-                            <Image
-                                src={travelLuggage}
-                                preview={false}
-                                width='16px'
-                                height='16px'
-                                className='footer-image'
-                            />
-                        </div>
-                        <a href="https://www.flaticon.com/free-icons/travel" title="travel icons">Travel icons created by Freepik - Flaticon</a>
-                    </Space>
-                    <Space>
-                        <div className='footer-image-shell'>
-                            <Image
-                                src={drive}
-                                preview={false}
-                                width='16px'
-                                height='16px'
-                                className='footer-image'
-                            />
-                        </div>
-                        <a href="https://www.flaticon.com/free-icons/test-drive" title="test drive icons">Test drive icons created by Mayor Icons - Flaticon</a>
-                    </Space>
-                    <Space>
-                        <div className='footer-image-shell'>
-                            <Image
-                                src={movie}
-                                preview={false}
-                                width='16px'
-                                height='16px'
-                                className='footer-image'
-                            />
-                        </div>
-                        <a href="https://www.flaticon.com/free-icons/video" title="video icons">Video icons created by Freepik - Flaticon</a>
-                    </Space>
-                </Space>
-                
-                <Space direction='vertical' className='device-details' size={0}>
-                    {isDesktopOrLaptop && <p>Device Type: desktop or laptop</p>}
-                    {isBigScreen && <p>Device Size: Large</p>}
-                    {isTabletOrMobile && <p>Device Type: tablet or mobile phone</p>}
-                    <p>Orientation: {isPortrait ? 'portrait' : 'landscape'}</p>
-                    {isRetina && <p>Retina</p>}
+                    {isDesktopOrLaptop && <p>{"Device Type: desktop or laptop"}</p>}
+                    {isBigScreen && <p>{"Device Size: Large"}</p>}
+                    {isTabletOrMobile && <p>{"Device Type: tablet or mobile phone"}</p>}
+                    <p>{"- Orientation: "}{isPortrait ? 'portrait' : 'landscape'}</p>
+                    {isRetina && <p>{"Retina"}</p>}
                 </Space>
                 
             </Footer>

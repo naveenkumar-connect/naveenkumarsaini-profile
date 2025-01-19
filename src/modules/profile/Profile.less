@@ -37,7 +37,7 @@
     text-transform: uppercase;
 
     min-width: 0;
-    width: 256px;
+    width: 112px;
     background: none;
     padding-top: 0px;
 }
@@ -47,36 +47,43 @@
     display: flex;
     justify-content: right;
     align-items: center;
+
+    .ant-anchor{
+        justify-content: right;
+    }
 }
 
 .profile-intro-container{
     .descriptions{
-        transform: translateY(164px);
-    
-        .description-text-salutation{
-            color: #c7aa36;
-        }
+        transform: translateY(50vh);
+    }
+    .descriptions-mobile{
+        transform: translateY(20vh);
+    }
+    .description-text-salutation{
+        color: #c7aa36;
+    }
 
-        .description-text-salutation-mobile{
-            background:rgba(255, 255, 255, 0.4);
-            .description-text-salutation();
-        }
-    
-        .description-text-description{
-            font-weight: 800;
-            margin: 0px;
-        }
+    .description-text-salutation-mobile{
+        background:rgba(255, 255, 255, 0.4);
+        .description-text-salutation();
+    }
 
-        .description-text-description-mobile{
-            background:rgba(255, 255, 255, 0.4);
-            .description-text-description();
-        }
+    .description-text-description{
+        font-weight: 800;
+        margin: 0px;
+    }
 
-        .descriptions-buttons{
-            padding-top: 15px;
-            .download-cv-button{
-                box-shadow: none;
-            }
+    .description-text-description-mobile{
+        background:rgba(255, 255, 255, 0.4);
+        .description-text-description();
+    }
+
+    .short-description{
+        padding-top: 15px;
+        line-height: 1.8;
+        .short-description-text{
+            background-color: rgba(255, 255, 255, 0.4);
         }
     }
 }
@@ -84,32 +91,9 @@
 .profile-about-container{
     height: fit-content;
     background: rgba(255, 254, 240, 0.8);
+    padding-top: 64px;
 
     .about-description{
-
-        .about-me{
-            color: #000000E0;
-        }
-        .about-text{
-            font-weight: 600;
-        }
-        .label-value-rows{
-            font-weight: 600;
-            margin-top: 10px;
-        }
-        .label-value-row-1{
-            margin-top: 20px;
-        }
-        .about-label{
-            font-weight: 600;
-            font-size: 16px;
-        }
-        .about-value{
-            font-weight: 600;
-            font-size: 16px;
-            color: #c7aa36;
-        }
-
         .hobbies{
             margin-top: 50px;
             font-weight: 600;
@@ -118,9 +102,7 @@
 
     .about-description-computer{
         padding: 30px;
-        .hobbies{
-            font-size: 16px;
-        }
+        
         .about-description();
     }
 
@@ -136,6 +118,76 @@
 .profile-about-container-computer{
     padding: 30px 0;
     .profile-about-container();
+
+    .about-section-title{
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase !important;
+        color: #666;
+    }
+
+    .about-sections{
+        .personal-info{
+            .label-value-row-1{
+                margin-top: 20px;
+            }
+            .about-label{
+                color: #666;
+                text-transform: capitalize;
+                font-size: 15px;
+                font-family: Open Sans, sans-serif;
+                opacity: 0.8;
+
+                font-weight: 500;
+                line-height: 1.6;
+            }
+            .about-value{
+                color: #c7aa36;
+                text-transform: capitalize;
+                font-size: 15px;
+                font-family: Open Sans, sans-serif;
+
+                font-weight: 500;
+                line-height: 1.6;
+            }
+            .hobbies{
+                font-size: 16px;
+            }
+        }
+        .experience{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+    }
+}
+
+.about-card{
+    min-width: 150px;
+    min-height: 60px;
+    // border: 1px solid #666;
+    background-color: unset;
+
+    .ant-card-body{
+        padding: 10px 20px 10px 20px;
+    }
+    .about-card-title{
+        color: #c7aa36;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: Poppins, sans-serif;
+        display: flex;
+        justify-content: center;
+    }
+    .about-card-subtitle{
+        color: #666;
+        font-size: 10px;
+        font-weight: 700;
+        font-family: Poppins, sans-serif;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .profile-about-container-mobile{
@@ -143,12 +195,20 @@
     .profile-about-container();
 }
 
+.profile-portfolio-container{
+    padding-top: 64px;
+
+    .portfolio-content{
+        border: 1px solid blue;
+        height: 200px;
+    }
+}
+
 .profile-footer{
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    gap: 15px;
     padding: 24px 48px;
     background: #232931;
 
@@ -157,28 +217,52 @@
     font-weight: 400;
     font-size: 16px;
 
-    .footer-external-resources{
-        display: flex;
-        align-items: center;
-        padding-top: 40px;
-        .footer-image-shell{
-            background: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 10px;
-        }
-        .footer-image{
-            transform: translate(1px, -2px);
-        }
-    }
-
-    .device-details{
-        margin-top: 30px;
-        display: flex;
-        align-items: center;
-    }
 }
 
 .social-icons{
     font-size: 16px;
+}
+
+.skill-cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: left;
+    padding-top: 10px;
+}
+
+
+.experience-cards{
+    padding-top: 10px;
+}
+
+.experience-card{
+    background-color: unset;
+}
+
+.experience-designation{
+    font-size: 18px;
+    font-family: Poppins, sans-serif;
+    text-transform: uppercase !important;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.experience-card-tenure{
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.section-title{
+    padding-bottom: 20px;
+    text-align: center;
+    color: #000000E0;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 900 !important;
+    span{
+        color: #c7aa36;
+    }
 }

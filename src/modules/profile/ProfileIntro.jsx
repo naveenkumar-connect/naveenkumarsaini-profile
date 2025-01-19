@@ -19,14 +19,14 @@ const ProfileIntro = ({isTabletOrMobile, isPortrait}) => {
                 height: isTabletOrMobile&&isPortrait?'60vh':'140vh',  // Container height
             }}
         >
-            <div className='descriptions'>
+            <div className={isTabletOrMobile?'descriptions-mobile':'descriptions'}>
                 <Row>
                     <Col span={12} offset={3}>
                         <Title 
                             className={isTabletOrMobile?'description-text-salutation-mobile' : 'description-text-salutation'}
                             level={5}
                         >
-                            Hello! This is Naveen
+                            Hello! I'm Naveen.
                         </Title>
                     </Col>
                 </Row>
@@ -40,9 +40,11 @@ const ProfileIntro = ({isTabletOrMobile, isPortrait}) => {
                         </Title>
                     </Col>
                 </Row>
-                <Row className='descriptions-buttons'>
-                    <Col span={12} offset={3}>
-                        <Button type="primary" className='download-cv-button'>Downlaod CV</Button>
+                <Row className='short-description'>
+                    <Col span={12} offset={3} className='short-description-text'>
+                        Dynamic and results-driven Team Lead with over 7 years of
+                        experience in architecting and delivering scalable web solutions
+                        using React, Django, and Azure.
                     </Col>
                 </Row>
             </div>

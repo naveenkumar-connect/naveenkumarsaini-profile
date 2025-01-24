@@ -4,8 +4,7 @@ import {
     Col,  
     Divider,
     Card,
-    Image,
-    Space
+    Image
 } from 'antd';
 import "./Profile.less";
 import js from '../../assets/images/icons/js.png';
@@ -18,37 +17,7 @@ import sql from '../../assets/images/icons/sql-server.png';
 import git from '../../assets/images/icons/git.png';
 import dsa from '../../assets/images/icons/dsa.png';
 import figma from '../../assets/images/icons/figma.png';
-import suitcase from '../../assets/images/icons/suitcase.png';
-import fractal from '../../assets/images/icons/fractal.png';
-import capgemini from '../../assets/images/icons/capgemini.png';
 
-
-const ExperienceCard = ({designation, companylogo, startDate, endDate}) => {
-    return(
-        <Card
-            className='experience-card'
-            bordered={true}
-        >
-            <Space size={'large'}>
-                <Image
-                    src={suitcase}
-                    preview={false}
-                    width='48px'
-                    height='48px'
-                />
-                <Space direction='vertical'>
-                    <div className='experience-designation'>{designation}</div>
-                    <Image
-                        src={companylogo}
-                        preview={false}
-                        height='24px'
-                    />
-                    <div className='experience-card-tenure'>{`${startDate} - ${endDate}`}</div>
-                </Space>
-            </Space>
-        </Card>
-    )
-}
 
 const CustomCard = ({title, subtitle, image}) => {
     return(
@@ -195,53 +164,6 @@ const ProfileAbout = ({isTabletOrMobile}) => {
                 >
                     <Divider />
                 </Col>
-            </Row>
-
-            <Row>
-                <Col 
-                    span={18} 
-                    offset={3}
-                >
-                    <div className='about-section-title'>experience</div>
-                    <div className='experience-cards'>
-                        <ExperienceCard 
-                            designation={'Architect | Team Lead | Full Stack Developer'}
-                            companylogo={fractal}
-                            startDate={'October 2024'}
-                            endDate={'Present'}
-                        />
-                        <ExperienceCard 
-                            designation={'Senior Engineer | Team Lead | Senior Full Stack Developer'}
-                            companylogo={fractal}
-                            startDate={'April 2023'}
-                            endDate={'September 2024'}
-                        />
-                        <ExperienceCard 
-                            designation={'Engineer | Full Stack Developer'}
-                            companylogo={fractal}
-                            startDate={'April 2021'}
-                            endDate={'March 2023'}
-                        />
-                        <ExperienceCard 
-                            designation={'Associate Consultant'}
-                            companylogo={capgemini}
-                            startDate={'January 2020'}
-                            endDate={'April 2021'}
-                        />
-                        <ExperienceCard 
-                            designation={'Senior Analyst and Software Engineer'}
-                            companylogo={capgemini}
-                            startDate={'January 2019'}
-                            endDate={'December 2019'}
-                        />
-                        <ExperienceCard 
-                            designation={'Analyst and Software Engineer'}
-                            companylogo={capgemini}
-                            startDate={'December 2017'}
-                            endDate={'December 2018'}
-                        />
-                    </div>
-                </Col>                
             </Row>
 
         </div>

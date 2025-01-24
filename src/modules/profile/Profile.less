@@ -37,7 +37,7 @@
     text-transform: uppercase;
 
     min-width: 0;
-    width: 112px;
+    width: 117px;
     background: none;
     padding-top: 0px;
 }
@@ -166,8 +166,7 @@
 .about-card{
     min-width: 150px;
     min-height: 60px;
-    // border: 1px solid #666;
-    background-color: unset;
+    background-color: #f5f5f5;
 
     .ant-card-body{
         padding: 10px 20px 10px 20px;
@@ -195,13 +194,12 @@
     .profile-about-container();
 }
 
-.profile-portfolio-container{
+.profile-experience-container{
     padding-top: 64px;
 
-    .portfolio-content{
-        border: 1px solid blue;
-        height: 200px;
-    }
+    // .experience-content{
+    //     height: 200px;
+    // }
 }
 
 .profile-footer{
@@ -238,7 +236,37 @@
 }
 
 .experience-card{
-    background-color: unset;
+    background-color: rgba(255, 254, 240, 0.8);
+    .experience-content{
+        width: calc( 100vw - 516px );
+        
+        .highlights-wrapper{
+            margin-top: 20px;
+            width: 100%;
+            border: 1px solid #e0d484;
+            padding: 15px;
+            
+            .highlights-text{
+                color: #666;
+                text-transform: capitalize;
+                font-size: 14px;
+                font-family: Open Sans, sans-serif;
+                opacity: 0.8;
+                font-weight: 500;
+                line-height: 1.6;
+            }   
+            .higlights-bullet{
+                padding-left: 28px;
+                display: flex;
+                align-items: center; 
+                gap: 10px; 
+                
+                .higlights-bullet-image{
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
 }
 
 .experience-designation{

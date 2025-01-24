@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Layout, Anchor, theme, Row, Col, Space, Image, Drawer, Tooltip } from 'antd';
+import { Layout, Anchor, Row, Col, Space, Image, Drawer, Tooltip } from 'antd';
 import { 
     XOutlined, 
     InstagramOutlined, 
@@ -13,17 +13,23 @@ import {
 } from '@ant-design/icons';
 import ProfileIntro from './ProfileIntro';
 import ProfileAbout from './ProfileAbout';
-import ProfilePortfolio from './ProfilePortfolio';
+import ProfileExperience from './ProfileExperience';
 import "./Profile.less";
-import musicalNote from '../../assets/images/musical-note.png';
-import travelLuggage from '../../assets/images/travel-luggage.png';
-import drive from '../../assets/images/drive.png';
-import movie from '../../assets/images/movie.png';
+import home from '../../assets/images/icons/home.png';
+import user from '../../assets/images/icons/user.png';
+import suitcase2 from '../../assets/images/icons/suitcase2.png';
 
 const { Header, Content, Footer } = Layout;
 
-export const prepareTitle = (icon, titleText) => {
-    return <Tooltip placement="bottom" title={titleText} color='#c7aa36'> {icon} </Tooltip>
+export const prepareTitle = (icon) => {
+    return(
+        <Image
+            src={icon}
+            preview={false}
+            width='16px'
+            height='16px'
+        />
+    )
 }
 
 export const getItems = () =>{
@@ -32,27 +38,18 @@ export const getItems = () =>{
             {
                 key: 'home',
                 href: '#home',
-                title: prepareTitle(
-                    <HomeOutlined />,
-                    "Home"
-                )
+                title: prepareTitle(home)
             },
             {
                 key: 'about',
                 href: '#about',
-                title: prepareTitle(
-                    <UserOutlined />,
-                    "About"
-                )
+                title: prepareTitle(user)
             },
-            // {
-            //     key: 'portfolio',
-            //     href: '#portfolio',
-            //     title: prepareTitle(
-            //         <BookOutlined />,
-            //         "Portfolio"
-            //     )
-            // },
+            {
+                key: 'experience',
+                href: '#experience',
+                title: prepareTitle(suitcase2)
+            },
             // {
             //     key: 'contact',
             //     href: '#contact',
@@ -166,7 +163,7 @@ const Profile = () => {
                     isPortrait={isPortrait}
                 />
                 <ProfileAbout isTabletOrMobile={isTabletOrMobile} />
-                {/* <ProfilePortfolio isTabletOrMobile={isTabletOrMobile} /> */}
+                <ProfileExperience isTabletOrMobile={isTabletOrMobile} />
             </Content>
             <Footer
                 className='profile-footer'

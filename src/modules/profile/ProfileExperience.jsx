@@ -8,6 +8,7 @@ import lead from '../../assets/images/icons/lead.png';
 import coding from '../../assets/images/icons/coding.png';
 import azureblack from '../../assets/images/icons/azureblack.png';
 import performance from '../../assets/images/icons/performance.png';
+import box from '../../assets/images/icons/box.png';
 
 
 const ExperienceCard = ({
@@ -106,35 +107,124 @@ const ProfileExperience = ({isTabletOrMobile}) => {
                             companylogo={fractal}
                             startDate={'April 2023'}
                             endDate={'September 2024'}
-                            highlights={[]}
+                            highlights={[
+                                {
+                                    icon: lead,
+                                    text: 'Successfully led cross-functional team of 8 members including developers, DevOps engineers, and QA professionals, delivering seamless end-to-end implementation for two complex projects within tight deadlines and exceeding client expectations.'
+                                },
+                                {
+                                    icon: coding,
+                                    text: 'Built an intuitive React-based data interaction interface supported by a Django/Python backend, enhancing user experience by 40%.'
+                                },
+                                {
+                                    icon: azureblack,
+                                    text: 'Implemented secure integrations with Azure App Service, LDAP, Azure Key Vault, Azure storage, Azure function app and Azure SQL Server, ensuring compliance and scalability.'
+                                },
+                                {
+                                    icon: performance,
+                                    text: 'Performance Improvement: Reducing data processing times by 35%, improved operational efficiency by 25% and reduced defects by 30%.'
+                                },
+                                {
+                                    icon: box,
+                                    text: 'Other Libraries and Packages used: Ant Design, Axios, Redux, React Router, Zest, Enzyme and Pytest.'
+                                }
+                            ]}
                         />
                         <ExperienceCard 
                             designation={'Engineer | Full Stack Developer'}
                             companylogo={fractal}
                             startDate={'April 2021'}
                             endDate={'March 2023'}
-                            highlights={[]}
+                            highlights={[
+                                {
+                                    icon: lead,
+                                    text: 'Led a team of 10 members to perform the end-to-end implementation of a highly scalable and maintainable system.'
+                                },
+                                {
+                                    icon: coding,
+                                    text: 'Tech-stack used: React, Django and SQL Server.'
+                                },
+                                {
+                                    icon: azureblack,
+                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Storage, Key Vault and Entra ID. Implemented LDAP integration for enhanced security, and optimized the system for scalability, supporting a 30% increase in user adoption within the first three months post-launch.'
+                                },
+                                {
+                                    icon: performance,
+                                    text: 'Ensured operational efficiency by reducing deployment times by 33% and enhancing system reliability, achieving 99.9% uptime.'
+                                }
+                            ]}
                         />
                         <ExperienceCard 
                             designation={'Associate Consultant'}
                             companylogo={capgemini}
                             startDate={'January 2020'}
                             endDate={'April 2021'}
-                            highlights={[]}
+                            highlights={[
+                                {
+                                    icon: lead,
+                                    text: 'Led a team of 10 members to perform the end-to-end implementation of a highly scalable and maintainable system.'
+                                },
+                                {
+                                    icon: coding,
+                                    text: 'Tech-stack used: React, Django and SQL Server.'
+                                },
+                                {
+                                    icon: azureblack,
+                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Storage, Key Vault and Entra ID. Implemented LDAP integration for enhanced security, and optimized the system for scalability, supporting a 30% increase in user adoption within the first three months post-launch.'
+                                },
+                                {
+                                    icon: performance,
+                                    text: 'Ensured operational efficiency by reducing deployment times by 33% and enhancing system reliability, achieving 99.9% uptime.'
+                                }
+                            ]}
                         />
                         <ExperienceCard 
                             designation={'Senior Analyst and Software Engineer'}
                             companylogo={capgemini}
                             startDate={'January 2019'}
                             endDate={'December 2019'}
-                            highlights={[]}
+                            highlights={[
+                                {
+                                    icon: lead,
+                                    text: 'Led a team of 10 members to perform the end-to-end implementation of a highly scalable and maintainable system.'
+                                },
+                                {
+                                    icon: coding,
+                                    text: 'Tech-stack used: React, Django and SQL Server.'
+                                },
+                                {
+                                    icon: azureblack,
+                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Storage, Key Vault and Entra ID. Implemented LDAP integration for enhanced security, and optimized the system for scalability, supporting a 30% increase in user adoption within the first three months post-launch.'
+                                },
+                                {
+                                    icon: performance,
+                                    text: 'Ensured operational efficiency by reducing deployment times by 33% and enhancing system reliability, achieving 99.9% uptime.'
+                                }
+                            ]}
                         />
                         <ExperienceCard 
                             designation={'Analyst and Software Engineer'}
                             companylogo={capgemini}
                             startDate={'December 2017'}
                             endDate={'December 2018'}
-                            highlights={[]}
+                            highlights={[
+                                {
+                                    icon: lead,
+                                    text: 'Led a team of 10 members to perform the end-to-end implementation of a highly scalable and maintainable system.'
+                                },
+                                {
+                                    icon: coding,
+                                    text: 'Tech-stack used: React, Django and SQL Server.'
+                                },
+                                {
+                                    icon: azureblack,
+                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Storage, Key Vault and Entra ID. Implemented LDAP integration for enhanced security, and optimized the system for scalability, supporting a 30% increase in user adoption within the first three months post-launch.'
+                                },
+                                {
+                                    icon: performance,
+                                    text: 'Ensured operational efficiency by reducing deployment times by 33% and enhancing system reliability, achieving 99.9% uptime.'
+                                }
+                            ]}
                         />
                     </div>
                 </Col>                

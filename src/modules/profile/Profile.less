@@ -196,10 +196,85 @@
 
 .profile-experience-container{
     padding-top: 64px;
+    padding-bottom: 64px;
+}
 
-    // .experience-content{
-    //     height: 200px;
-    // }
+.profile-contact-container{
+    padding-top: 64px;
+    background: rgba(255, 254, 240, 0.8);
+
+    .contact-sections{
+        padding-bottom: 64px;
+        .contact-deatils{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            .contact-description{
+                text-align: center;
+                color: #666;
+                font-size: 15px;
+                font-family: Open Sans, sans-serif;
+                opacity: 0.8;
+
+                font-weight: 500;
+                line-height: 1.6;
+            }  
+        }
+
+        .email-fields{
+            border: 1px solid yellow;
+        }
+    }
+}
+
+.contact-cards{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.contact-card{
+    background-color: unset;
+    width: 25vw;
+
+    .ant-card-body{
+        padding: 0;
+    }
+    .contact-card-row{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+
+        .contact-card-icon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-card-text{
+            font-size: 15px;
+            font-family: Open Sans, sans-serif;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #666;
+    
+            .contact-card-label{
+                opacity: 0.8;
+                margin: 0;
+            }
+            .contact-card-value{
+                opacity: 1;
+                font-weight: 700;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.linked-in-button{
+    padding: 0px;
+    height: 0px;
+    font-weight: 700;
 }
 
 .profile-footer{

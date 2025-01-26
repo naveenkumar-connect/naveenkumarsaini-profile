@@ -9,6 +9,11 @@ import coding from '../../assets/images/icons/coding.png';
 import azureblack from '../../assets/images/icons/azureblack.png';
 import performance from '../../assets/images/icons/performance.png';
 import box from '../../assets/images/icons/box.png';
+import analytics from '../../assets/images/icons/analytics.png';
+import scalable from '../../assets/images/icons/scalable.png';
+import categories from '../../assets/images/icons/categories.png';
+import dashboard from '../../assets/images/icons/dashboard.png';
+import calculate from '../../assets/images/icons/calculate.png';
 
 
 const ExperienceCard = ({
@@ -137,8 +142,8 @@ const ProfileExperience = ({isTabletOrMobile}) => {
                             endDate={'March 2023'}
                             highlights={[
                                 {
-                                    icon: lead,
-                                    text: 'Led a team of 10 members to perform the end-to-end implementation of a highly scalable and maintainable system.'
+                                    icon: analytics,
+                                    text: 'Designed and delivered a robust web platform for seamless data collection and analysis, enhancing decision-making efficiency by a significant margin.'
                                 },
                                 {
                                     icon: coding,
@@ -146,11 +151,15 @@ const ProfileExperience = ({isTabletOrMobile}) => {
                                 },
                                 {
                                     icon: azureblack,
-                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Storage, Key Vault and Entra ID. Implemented LDAP integration for enhanced security, and optimized the system for scalability, supporting a 30% increase in user adoption within the first three months post-launch.'
+                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Key Vault. Implemented LDAP integration for enhanced security and user autorization.'
                                 },
                                 {
                                     icon: performance,
-                                    text: 'Ensured operational efficiency by reducing deployment times by 33% and enhancing system reliability, achieving 99.9% uptime.'
+                                    text: 'Enabled concurrent usage by multiple users, boosting team productivity and collaboration across departments.'
+                                },
+                                {
+                                    icon: scalable,
+                                    text: 'Built with scalability as a core principle, allowing for seamless integration of future modules and features to adapt to evolving.'
                                 }
                             ]}
                         />
@@ -161,20 +170,12 @@ const ProfileExperience = ({isTabletOrMobile}) => {
                             endDate={'April 2021'}
                             highlights={[
                                 {
-                                    icon: lead,
-                                    text: 'Led a team of 10 members to perform the end-to-end implementation of a highly scalable and maintainable system.'
+                                    icon: categories,
+                                    text: 'Developed interactive application for anonymous employee feedback to handle up to 1000 plus user base.'
                                 },
                                 {
                                     icon: coding,
                                     text: 'Tech-stack used: React, Django and SQL Server.'
-                                },
-                                {
-                                    icon: azureblack,
-                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Storage, Key Vault and Entra ID. Implemented LDAP integration for enhanced security, and optimized the system for scalability, supporting a 30% increase in user adoption within the first three months post-launch.'
-                                },
-                                {
-                                    icon: performance,
-                                    text: 'Ensured operational efficiency by reducing deployment times by 33% and enhancing system reliability, achieving 99.9% uptime.'
                                 }
                             ]}
                         />
@@ -185,20 +186,12 @@ const ProfileExperience = ({isTabletOrMobile}) => {
                             endDate={'December 2019'}
                             highlights={[
                                 {
-                                    icon: lead,
-                                    text: 'Led a team of 10 members to perform the end-to-end implementation of a highly scalable and maintainable system.'
+                                    icon: dashboard,
+                                    text: 'Developed Network Performance Report Manager Dashboard.'
                                 },
                                 {
                                     icon: coding,
-                                    text: 'Tech-stack used: React, Django and SQL Server.'
-                                },
-                                {
-                                    icon: azureblack,
-                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Storage, Key Vault and Entra ID. Implemented LDAP integration for enhanced security, and optimized the system for scalability, supporting a 30% increase in user adoption within the first three months post-launch.'
-                                },
-                                {
-                                    icon: performance,
-                                    text: 'Ensured operational efficiency by reducing deployment times by 33% and enhancing system reliability, achieving 99.9% uptime.'
+                                    text: 'Tech-stack used: React and Django.'
                                 }
                             ]}
                         />
@@ -209,20 +202,12 @@ const ProfileExperience = ({isTabletOrMobile}) => {
                             endDate={'December 2018'}
                             highlights={[
                                 {
-                                    icon: lead,
-                                    text: 'Led a team of 10 members to perform the end-to-end implementation of a highly scalable and maintainable system.'
+                                    icon: calculate,
+                                    text: 'Created reusable functions and components for field validations.'
                                 },
                                 {
                                     icon: coding,
-                                    text: 'Tech-stack used: React, Django and SQL Server.'
-                                },
-                                {
-                                    icon: azureblack,
-                                    text: 'Cloud and services used: Azure, App Service, SQL Server, Storage, Key Vault and Entra ID. Implemented LDAP integration for enhanced security, and optimized the system for scalability, supporting a 30% increase in user adoption within the first three months post-launch.'
-                                },
-                                {
-                                    icon: performance,
-                                    text: 'Ensured operational efficiency by reducing deployment times by 33% and enhancing system reliability, achieving 99.9% uptime.'
+                                    text: 'Tech-stack used: React and Django'
                                 }
                             ]}
                         />

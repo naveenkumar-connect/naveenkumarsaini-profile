@@ -14,10 +14,12 @@ import {
 import ProfileIntro from './ProfileIntro';
 import ProfileAbout from './ProfileAbout';
 import ProfileExperience from './ProfileExperience';
+import ProfileContact from './ProfileContact';
 import "./Profile.less";
 import home from '../../assets/images/icons/home.png';
 import user from '../../assets/images/icons/user.png';
 import suitcase2 from '../../assets/images/icons/suitcase2.png';
+import contact from '../../assets/images/icons/contact.png';
 
 const { Header, Content, Footer } = Layout;
 
@@ -50,14 +52,11 @@ export const getItems = () =>{
                 href: '#experience',
                 title: prepareTitle(suitcase2)
             },
-            // {
-            //     key: 'contact',
-            //     href: '#contact',
-            //     title: prepareTitle(
-            //         <MailOutlined />,
-            //         "Contact"
-            //     )
-            // }
+            {
+                key: 'contact',
+                href: '#contact',
+                title: prepareTitle(contact)
+            }
         ]
     );
 };
@@ -164,6 +163,7 @@ const Profile = () => {
                 />
                 <ProfileAbout isTabletOrMobile={isTabletOrMobile} />
                 <ProfileExperience isTabletOrMobile={isTabletOrMobile} />
+                <ProfileContact isTabletOrMobile={isTabletOrMobile} />
             </Content>
             <Footer
                 className='profile-footer'

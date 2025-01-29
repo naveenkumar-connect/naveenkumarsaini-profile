@@ -2,14 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Layout, Anchor, Row, Col, Space, Image, Drawer, Tooltip } from 'antd';
 import { 
-    XOutlined, 
-    InstagramOutlined, 
-    LinkedinOutlined, 
-    MenuOutlined, 
-    HomeOutlined,
-    UserOutlined,
-    MailOutlined,
-    BookOutlined
+    MenuOutlined
 } from '@ant-design/icons';
 import ProfileIntro from './ProfileIntro';
 import ProfileAbout from './ProfileAbout';
@@ -20,6 +13,8 @@ import home from '../../assets/images/icons/home.png';
 import user from '../../assets/images/icons/user.png';
 import suitcase2 from '../../assets/images/icons/suitcase2.png';
 import contact from '../../assets/images/icons/contact.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { profileActions } from './store/action.js';
 
 const { Header, Content, Footer } = Layout;
 
@@ -67,9 +62,7 @@ const contentStyle = {
 
 const Profile = () => {
 
-    // const {
-    //     token: { colorBgContainer },
-    // } = theme.useToken();
+    let dispatch = useDispatch();
 
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1224px)'
@@ -83,10 +76,16 @@ const Profile = () => {
     const [headerColorRequired, setHeaderColorRequired] = useState(false);
     const [openDrawer, setOpenDrawer] = useState(false);
 
+    let userData = useSelector(state => state.profileReducer.userData);
+
     const handleScroll = () => {
         const position = window.pageYOffset;
         setScrollPosition(position);
     };
+
+    useEffect(() => {
+        dispatch(profileActions.getUserData())
+    }, []);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });

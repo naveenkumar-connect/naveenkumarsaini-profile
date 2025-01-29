@@ -14,7 +14,7 @@ const ContactCard = ({icon, label, value}) => {
     return(
         <Card className='contact-card' bordered={false}>
             <div className='contact-card-row'>
-                <div lassName='contact-card-icon'>
+                <div className='contact-card-icon'>
                     <Image
                         src={icon}
                         preview={false}

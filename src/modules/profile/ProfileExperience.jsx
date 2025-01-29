@@ -47,7 +47,7 @@ const ExperienceCard = ({
                         <div className='highlights-text'>Highlights</div>
                         {
                             highlights.map(highlight=>(
-                                <div className='higlights-bullet'>
+                                <div className='higlights-bullet' key={highlight.text}>
                                     <div className='higlights-bullet-image'>
                                         <Image
                                             src={highlight.icon}

@@ -76,7 +76,7 @@ const Profile = () => {
     const [headerColorRequired, setHeaderColorRequired] = useState(false);
     const [openDrawer, setOpenDrawer] = useState(false);
 
-    let userData = useSelector(state => state.profileReducer.userData);
+    let userData = useSelector(state => state.profileReducer?.userData);
 
     const handleScroll = () => {
         const position = window.pageYOffset;

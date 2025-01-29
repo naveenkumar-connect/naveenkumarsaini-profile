@@ -1,26 +1,20 @@
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import { createLogger } from "redux-logger";
-import { thunk } from "redux-thunk";
 import profileReducer from "../modules/profile/store/profileReducer";
 
-const composeEnhancers  = 
-        typeof window === "object" && window.__REDDUX_DEVTOOLS_EXTENSION_COMPOSE__
-            ? window.__REDDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-                // Specify extension's options like name, actionsBlacklist, actionsCreators, serialize...
-            })
-            : compose;
+const logger = createLogger();
 
-const enhancer = composeEnhancers(
-    process.env.REACT_APP_HOST==="LOCAL"?
-        applyMiddleware(thunk, createLogger())
-        :
-        applyMiddleware(thunk)
-);
+const middleware = (getDefaultMiddleware) =>
+    process.env.REACT_APP_HOST === "LOCAL"
+      ? getDefaultMiddleware().concat(logger)
+      : getDefaultMiddleware();
 
-export const rootReducer = combineReducers({
-    profileReducer
-})
-
-const store = createStore(rootReducer, enhancer);
+const store = configureStore({
+    reducer: {
+        profile: profileReducer,  // Ensure the key matches how you access the slice in your state
+    },
+    middleware, 
+    devTools: typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__,
+});
 
 export default store;
